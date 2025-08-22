@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PT.Form-pswd</title>
+  <link rel="stylesheet" href="styles/style.css"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: url('img5.png'); /* siguraduhin tama ang filename/path */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+   
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+
+    .login-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      text-align: center;
+      color: yellow;
+      width: 300px;
+    }
+
+    .login-card h1 {
+      margin-bottom: 20px;
+      color: #ffcc00;
+    }
+
+    .login-card input[type="text"],
+    .login-card input[type="password"] {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+    }
+
+    .login-card label {
+      font-size: 14px;
+    }
+
+    .login-card button {
+      padding: 10px 20px;
+      background-color: green;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 10px 5px;
+    }
+
+    .login-card button:hover {
+      background-color: darkred;
+    }
+
+    .login-card a {
+      color: white;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-card">
+    <h1>LOG IN</h1>
+    <form onsubmit="return checkLogin()">
+      <input type="text" id="username" placeholder="Username" required><br>
+      <input type="password" id="password" placeholder="Password" required><br>
+      <label>
+        <input type="checkbox" onclick="togglePassword()"> Show Password
+      </label><br><br>
+      <button type="submit">Login</button>
+      <button><a href="page 2.html">Sign in</a></button>
+    </form>
+  </div>
+
+  <script>
+    
+    function togglePassword() {
+      const pwd = document.getElementById('password');
+      pwd.type = pwd.type === 'password' ? 'text' : 'password';
+    }
+
+    
+    function checkLogin() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      if(username === 'tabalnozedrick' && password === 'zedrick@25') {
+        window.location.href = 'PERF Task .2.html';
+      } else {
+        alert('Invalid username or password!');
+      }
+
+      return false;
+    }
+  </script>
+
+</body>
+</html>
